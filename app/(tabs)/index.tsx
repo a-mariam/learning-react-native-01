@@ -1,4 +1,4 @@
-import {Image, StyleSheet, Platform,TextInput, View,Text} from 'react-native';
+import {Image, StyleSheet, Platform, TextInput, View, Text, Button} from 'react-native';
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
@@ -6,6 +6,19 @@ import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 
 export default function HomeScreen() {
+
+    const userBox = [
+        {name: 'User Interface', showBorder: false, id: 'UserInterface'},
+        {name: 'User Experience', showBorder: true,id: 'UserExperience' },
+        {name: 'User Research', showBorder: false,id: 'UserResearch' },
+        {name: 'Ux Writing', showBorder: true, id: 'UxWriting' },
+        {name: 'User Texting', showBorder: true, id: 'UserTexting' },
+        {name: 'Service Design', showBorder: true, id: 'ServiceDesign' },
+        {name: 'Strategy', showBorder: false,id: 'Strategy' },
+        {name: 'Design Systems', showBorder: false,id: 'DesignSystems' },
+
+
+    ]
   return (
     // <ParallaxScrollView
     //   headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -54,19 +67,27 @@ export default function HomeScreen() {
     // </ParallaxScrollView>
 
       <View style={styles.container}>
-          <Text style={styles.personalizeText}>Personalize your experience</Text>
-          <Text>Choose your interests.</Text>
+         <View style={styles.textContainer}>
+             <ThemedText style={styles.bigText}>Personalize your experience</ThemedText>
+             <Text className={`text-pink-50 bg-red-500 ios:text-blue-500 `}>Choose your interests.</Text>
 
-          <View style={styles.stepContainer}>
-              <View style={styles.personalizeText}>
-                  user
-              </View>
-              <View style={styles.personalizeText}>
-                  user
-              </View>
-              <View style={styles.personalizeText}>
-                  user
-              </View>
+         </View>
+          <View >
+             <View style={styles.stepContainer} >
+                 {userBox?.map((item, index) => (
+                     <View
+                         key={item?.id + index}
+                         id={item?.id}
+                         testID={item?.id}
+                         style={item?.showBorder ? styles.personalizeText : styles.InputContainer}>
+                         {item?.name}
+                     </View>
+                 ))}
+                 <View
+                     style={styles.buttonStyle}
+                     id={'Next'} testID={'Next'}  >Next</View>
+
+             </View>
           </View>
       </View>
 
@@ -86,25 +107,62 @@ const styles = StyleSheet.create({
   stepContainer: {
      width: '100%',
       height: "auto",
-      paddingHorizontal: 8,
+      paddingHorizontal: 14,
       gap: 8,
-
+      marginTop: 10,
   },
+    textContainer: {
+        width: '100%',
+        height: "auto",
+        paddingHorizontal: 14,
+        gap: 20,
+        marginTop: 20,
+    },
+    bigText: {
+        color: '#000000',
+        fontWeight: 'bold',
+        fontSize: 30,
+    },
   personalizeText: {
       borderRadius: 10,
-      backgroundColor: '#eaf2ff',
-   borderColor:'#e6e6e9',
+      borderColor:'#e6e6e9',
       borderWidth: 1,
       padding: 10,
       width: '100%',
-
-
+      height: 'auto',
+      paddingVertical: 20,
+      fontWeight: 'thin',
+      // boxShadow: `rgba(149, 157, 165, 0.2) 0 8px 24px`,
 
   },
+    InputContainer: {
+        borderRadius: 10,
+        // borderColor:'#e6e6e9',
+        backgroundColor:'#eaf2ff',
+        // borderWidth: 1,
+        padding: 10,
+        width: '100%',
+        height: 'auto',
+        paddingVertical: 20,
+        fontWeight: 'thin',
+        // boxShadow: `rgba(149, 157, 165, 0.2) 0 8px 24px`,
+
+    },
     container: {
         width: '100%',
         height: '100%',
         backgroundColor: 'white',
+    },
+    buttonStyle: {
+      width: '100%',
+        padding: 10,
+        height: 'auto',
+        paddingVertical: 20,
+        fontWeight: 'thin',
+        backgroundColor: '#056ffd',
+        justifyContent:'center',
+        alignItems: 'center',
+        borderRadius: 10,
     }
 });
 
