@@ -20,80 +20,37 @@ export default function HomeScreen() {
 
     ]
   return (
-    // <ParallaxScrollView
-    //   headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-    //   headerImage={
-    //     <Image
-    //       source={require('@/assets/images/partial-react-logo.png')}
-    //       style={styles.reactLogo}
-    //     />
-    //   }
-    // >
-    //   <ThemedView style={styles.titleContainer}>
-    //     <ThemedText type="title">Welcome!</ThemedText>
-    //     <HelloWave />
-    //   </ThemedView>
-    //   <ThemedView style={styles.stepContainer}>
-    //     <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-    //     <ThemedText>
-    //       Edit <ThemedText type="defaultSemiBold">just changed the code base </ThemedText> to see changes.
-    //       Press{' '}
-    //       <ThemedText type="defaultSemiBold">
-    //         {Platform.select({
-    //           ios: 'cmd + d',
-    //           android: 'cmd + m',
-    //           web: 'F12'
-    //         })}
-    //       </ThemedText>{' '}
-    //       to open developer tools.
-    //     </ThemedText>
-    //   </ThemedView>
-    //   <ThemedView style={styles.stepContainer}>
-    //     <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-    //     <ThemedText>
-    //       Tap the Explore tab to learn more about what's included in this starter app.
-    //     </ThemedText>
-    //   </ThemedView>
-    //   <ThemedView style={styles.stepContainer}>
-    //     <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-    //     <ThemedText>
-    //       When you're ready, run{' '}
-    //       <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-    //       <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-    //       <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-    //       <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-    //     </ThemedText>
-    //   </ThemedView>
-    // </ParallaxScrollView>
-
       <View style={styles.container}>
-         <View style={styles.textContainer}>
-             <ThemedText style={styles.bigText}>Personalize your experience</ThemedText>
-             <Text className={`text-pink-50 bg-red-500 ios:text-blue-500 `}>Choose your interests.</Text>
+         <View
+             style={styles.textContainer}>
+             {/*<ThemedText style={styles.bigText}>Personalize your experience</ThemedText>*/}
+             {/*<Text className={`text-pink-50 bg-red-500 ios:text-blue-500 `}>Choose your interests.</Text>*/}
 
+             {/*headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}*/}
+             {/*  headerImage={*/}
+                  <Image
+                    source={require('@/assets/images/CazaLogo.svg')}
+                    style={styles.cazaLogo}
+                  />
+             <Image
+                 source={require('@/assets/images/Illustration.svg')}
+                 style={styles.illustrationLogo}
+             />
+                {/*}*/}
          </View>
           <View >
-             <View style={styles.stepContainer} >
-                 {userBox?.map((item, index) => (
-                     <View
-                         key={item?.id + index}
-                         id={item?.id}
-                         testID={item?.id}
-                         style={item?.showBorder ? styles.personalizeText : styles.InputContainer}>
-                         {item?.name}
-                     </View>
-                 ))}
-                 <View
-                     style={styles.buttonStyle}
-                     id={'Next'} testID={'Next'}  >Next</View>
-
-             </View>
+              <Text
+                  style={{marginRight: 'auto', marginLeft: 'auto'}}>Design by pikisuperstar</Text>
+              <View>
+                  <Text style={{marginRight: 'auto', marginLeft: 'auto', marginTop: 40,fontWeight: 'bold',fontSize: 30 }}>Welcome to Caza </Text>
+                  <Text style={{marginRight: 'auto', marginLeft: 'auto',fontWeight: 'bold',fontSize: 30 }} >Sharing </Text>
+              </View>
+                  <View
+                      style={styles.buttonStyle}
+                      id={'Next'} testID={'Next'}  >Login</View>
           </View>
       </View>
 
-      // <View style={{ flex: 1, backgroundColor: 'white', justifyContent: 'center' }}>
-      //     <Text style={{ fontSize: 20, color: 'black' }}>Hello World</Text>
-      // </View>
   );
 }
 
@@ -104,6 +61,18 @@ const styles = StyleSheet.create({
     gap: 8,
       marginTop: 6,
   },
+    cazaLogo: {
+      alignSelf: 'center',
+        width: '70%',
+        height: 150,
+        resizeMode: 'contain',
+    },
+    illustrationLogo:{
+        alignSelf: 'center',
+        width: '90%',
+        height: 340,
+        resizeMode: 'contain',
+    },
   stepContainer: {
      width: '100%',
       height: "auto",
@@ -154,15 +123,17 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
     },
     buttonStyle: {
-      width: '100%',
-        padding: 10,
+      width: '90%',
+        padding: 16,
         height: 'auto',
-        paddingVertical: 20,
         fontWeight: 'thin',
-        backgroundColor: '#056ffd',
-        justifyContent:'center',
+        color:'white',
+        backgroundColor: '#444CE7',
+        alignSelf: 'center',
         alignItems: 'center',
-        borderRadius: 10,
+        borderRadius: 5,
+        textDecorationColor: 'white',
+        marginTop: 40,
     }
 });
 
